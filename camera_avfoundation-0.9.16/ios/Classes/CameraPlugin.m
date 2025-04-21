@@ -333,11 +333,32 @@ static FlutterError *FlutterErrorFromNSError(NSError *error) {
 }
 
 - (void)setExposureOffset:(double)offset
-               completion:(nonnull void (^)(FlutterError *_Nullable))completion {
+               completion:(void(^)(NSNumber *_Nullable, FlutterError *_Nullable))completion {
   __weak typeof(self) weakSelf = self;
   dispatch_async(self.captureSessionQueue, ^{
-    [weakSelf.camera setExposureOffset:offset];
-    completion(nil);
+    CameraPlugin *strongSelf = weakSelf;
+    if (!strongSelf) {
+      completion(nil, nil);
+      return;
+    }
+    
+    AVCaptureDevice *device = strongSelf.camera.captureDevice;
+    NSError *lockError = nil;
+    if (![device lockForConfiguration:&lockError]) {
+      completion(nil, FlutterErrorFromNSError(lockError));
+      return;
+    }
+    
+    // Use AVFoundation’s custom‑exposure call:
+    [device setExposureModeCustomWithDuration:device.exposureDuration
+                                         ISO:device.ISO
+                           completionHandler:^{
+      // Unlock now that AE is settled
+      [device unlockForConfiguration];
+      
+      // Return the applied offset back to Dart
+      completion(@(offset), nil);
+    }];
   });
 }
 

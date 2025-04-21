@@ -14,12 +14,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSUInteger, FCPPlatformCameraLensDirection) {
-  /// Front facing camera (a user looking at the screen is seen by the camera).
-  FCPPlatformCameraLensDirectionFront = 0,
-  /// Back facing camera (a user looking at the screen is not seen by the camera).
-  FCPPlatformCameraLensDirectionBack = 1,
-  /// External camera which may not be mounted to the device.
-  FCPPlatformCameraLensDirectionExternal = 2,
+    /// Front facing camera (a user looking at the screen is seen by the camera).
+    FCPPlatformCameraLensDirectionFront = 0,
+    /// Back facing camera (a user looking at the screen is not seen by the camera).
+    FCPPlatformCameraLensDirectionBack = 1,
+    /// External camera which may not be mounted to the device.
+    FCPPlatformCameraLensDirectionExternal = 2,
 };
 
 /// Wrapper for FCPPlatformCameraLensDirection to allow for nullability.
@@ -29,10 +29,10 @@ typedef NS_ENUM(NSUInteger, FCPPlatformCameraLensDirection) {
 @end
 
 typedef NS_ENUM(NSUInteger, FCPPlatformDeviceOrientation) {
-  FCPPlatformDeviceOrientationPortraitUp = 0,
-  FCPPlatformDeviceOrientationLandscapeLeft = 1,
-  FCPPlatformDeviceOrientationPortraitDown = 2,
-  FCPPlatformDeviceOrientationLandscapeRight = 3,
+    FCPPlatformDeviceOrientationPortraitUp = 0,
+    FCPPlatformDeviceOrientationLandscapeLeft = 1,
+    FCPPlatformDeviceOrientationPortraitDown = 2,
+    FCPPlatformDeviceOrientationLandscapeRight = 3,
 };
 
 /// Wrapper for FCPPlatformDeviceOrientation to allow for nullability.
@@ -42,8 +42,8 @@ typedef NS_ENUM(NSUInteger, FCPPlatformDeviceOrientation) {
 @end
 
 typedef NS_ENUM(NSUInteger, FCPPlatformExposureMode) {
-  FCPPlatformExposureModeAuto = 0,
-  FCPPlatformExposureModeLocked = 1,
+    FCPPlatformExposureModeAuto = 0,
+    FCPPlatformExposureModeLocked = 1,
 };
 
 /// Wrapper for FCPPlatformExposureMode to allow for nullability.
@@ -53,10 +53,10 @@ typedef NS_ENUM(NSUInteger, FCPPlatformExposureMode) {
 @end
 
 typedef NS_ENUM(NSUInteger, FCPPlatformFlashMode) {
-  FCPPlatformFlashModeOff = 0,
-  FCPPlatformFlashModeAuto = 1,
-  FCPPlatformFlashModeAlways = 2,
-  FCPPlatformFlashModeTorch = 3,
+    FCPPlatformFlashModeOff = 0,
+    FCPPlatformFlashModeAuto = 1,
+    FCPPlatformFlashModeAlways = 2,
+    FCPPlatformFlashModeTorch = 3,
 };
 
 /// Wrapper for FCPPlatformFlashMode to allow for nullability.
@@ -66,8 +66,8 @@ typedef NS_ENUM(NSUInteger, FCPPlatformFlashMode) {
 @end
 
 typedef NS_ENUM(NSUInteger, FCPPlatformFocusMode) {
-  FCPPlatformFocusModeAuto = 0,
-  FCPPlatformFocusModeLocked = 1,
+    FCPPlatformFocusModeAuto = 0,
+    FCPPlatformFocusModeLocked = 1,
 };
 
 /// Wrapper for FCPPlatformFocusMode to allow for nullability.
@@ -78,8 +78,8 @@ typedef NS_ENUM(NSUInteger, FCPPlatformFocusMode) {
 
 /// Pigeon version of ImageFileFormat.
 typedef NS_ENUM(NSUInteger, FCPPlatformImageFileFormat) {
-  FCPPlatformImageFileFormatJpeg = 0,
-  FCPPlatformImageFileFormatHeif = 1,
+    FCPPlatformImageFileFormatJpeg = 0,
+    FCPPlatformImageFileFormatHeif = 1,
 };
 
 /// Wrapper for FCPPlatformImageFileFormat to allow for nullability.
@@ -89,8 +89,8 @@ typedef NS_ENUM(NSUInteger, FCPPlatformImageFileFormat) {
 @end
 
 typedef NS_ENUM(NSUInteger, FCPPlatformImageFormatGroup) {
-  FCPPlatformImageFormatGroupBgra8888 = 0,
-  FCPPlatformImageFormatGroupYuv420 = 1,
+    FCPPlatformImageFormatGroupBgra8888 = 0,
+    FCPPlatformImageFormatGroupYuv420 = 1,
 };
 
 /// Wrapper for FCPPlatformImageFormatGroup to allow for nullability.
@@ -100,12 +100,12 @@ typedef NS_ENUM(NSUInteger, FCPPlatformImageFormatGroup) {
 @end
 
 typedef NS_ENUM(NSUInteger, FCPPlatformResolutionPreset) {
-  FCPPlatformResolutionPresetLow = 0,
-  FCPPlatformResolutionPresetMedium = 1,
-  FCPPlatformResolutionPresetHigh = 2,
-  FCPPlatformResolutionPresetVeryHigh = 3,
-  FCPPlatformResolutionPresetUltraHigh = 4,
-  FCPPlatformResolutionPresetMax = 5,
+    FCPPlatformResolutionPresetLow = 0,
+    FCPPlatformResolutionPresetMedium = 1,
+    FCPPlatformResolutionPresetHigh = 2,
+    FCPPlatformResolutionPresetVeryHigh = 3,
+    FCPPlatformResolutionPresetUltraHigh = 4,
+    FCPPlatformResolutionPresetMax = 5,
 };
 
 /// Wrapper for FCPPlatformResolutionPreset to allow for nullability.
@@ -248,7 +248,8 @@ NSObject<FlutterMessageCodec> *FCPCameraApiGetCodec(void);
 /// Returns the maximum exposure offset supported by the camera.
 - (void)getMaximumExposureOffset:(void (^)(NSNumber *_Nullable, FlutterError *_Nullable))completion;
 /// Sets the exposure offset manually to the given value.
-- (void)setExposureOffset:(double)offset completion:(void (^)(FlutterError *_Nullable))completion;
+- (void)setExposureOffset:(double)offset
+               completion:(void (^)(NSNumber *_Nullable, FlutterError *_Nullable))completion;
 /// Switches the camera to the given focus mode.
 - (void)setFocusMode:(FCPPlatformFocusMode)mode
           completion:(void (^)(FlutterError *_Nullable))completion;
