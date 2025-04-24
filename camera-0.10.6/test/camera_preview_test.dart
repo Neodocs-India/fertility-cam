@@ -86,7 +86,7 @@ class FakeController extends ValueNotifier<CameraValue> implements CameraControl
   Future<double> setExposureOffset(double offset) async => offset;
 
   @override
-  Future<int> getExposureOffset() async => 1;
+  Future<double> getExposureOffset() async => 1;
 
   @override
   Future<void> setExposurePoint(Offset? point) async {}

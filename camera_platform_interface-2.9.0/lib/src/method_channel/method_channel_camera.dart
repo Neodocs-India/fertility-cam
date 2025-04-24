@@ -410,8 +410,8 @@ class MethodChannelCamera extends CameraPlatform {
   }
 
   @override
-  Future<int> getExposureOffset(int cameraId) async {
-    final int? appliedOffset = await _channel.invokeMethod<int>(
+  Future<double> getExposureOffset(int cameraId) async {
+    final double? appliedOffset = await _channel.invokeMethod<double>(
       'getExposureOffset',
       <String, dynamic>{
         'cameraId': cameraId,

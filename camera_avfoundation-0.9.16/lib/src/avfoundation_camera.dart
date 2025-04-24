@@ -316,6 +316,12 @@ class AVFoundationCamera extends CameraPlatform {
   }
 
   @override
+  Future<double> getExposureOffset(int cameraId) async {
+    final offset = (await _hostApi.getExposureOffset());
+    return offset;
+  }
+
+  @override
   Future<void> setFocusMode(int cameraId, FocusMode mode) async {
     await _hostApi.setFocusMode(_pigeonFocusMode(mode));
   }

@@ -110,6 +110,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setFocusPoint:(nullable FCPPlatformPoint *)point
        withCompletion:(void (^)(FlutterError *_Nullable))completion;
 - (void)setExposureOffset:(double)offset;
+- (double)getExposureOffset;
 - (void)startImageStreamWithMessenger:(NSObject<FlutterBinaryMessenger> *)messenger;
 - (void)stopImageStream;
 - (void)setZoomLevel:(CGFloat)zoom withCompletion:(void (^)(FlutterError *_Nullable))completion;

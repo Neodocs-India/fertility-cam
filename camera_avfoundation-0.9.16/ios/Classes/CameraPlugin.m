@@ -362,6 +362,15 @@ static FlutterError *FlutterErrorFromNSError(NSError *error) {
   });
 }
 
+- (void)getExposureOffsetWithCompletion:(nonnull void (^)(NSNumber *_Nullable, FlutterError *_Nullable))completion {
+  __weak typeof(self) weakSelf = self;
+  dispatch_async(self.captureSessionQueue, ^{
+    double currentOffset = [weakSelf.camera getExposureOffset];
+    completion(@(currentOffset), nil);
+  });
+}
+
+
 - (void)setFocusMode:(FCPPlatformFocusMode)mode
           completion:(nonnull void (^)(FlutterError *_Nullable))completion {
   __weak typeof(self) weakSelf = self;
