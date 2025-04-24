@@ -241,7 +241,7 @@ abstract class CameraPlatform extends PlatformInterface {
   /// Retrieves the latest exposure offset that was captured from the preview stream
   ///
   /// Returns the offset value that is found in the previous frame.
-  Future<int> getExposureOffset(int cameraId) {
+  Future<double> getExposureOffset(int cameraId) {
     throw UnimplementedError('getExposureOffset() is not implemented.');
   }
 

@@ -257,6 +257,12 @@ abstract class CameraApi {
   @ObjCSelector('setExposureOffset:')
   void setExposureOffset(double offset);
 
+  /// Gets the current Exposure 
+  @async
+  @ObjCSelector('getExposureOffsetWithCompletion:')
+  double getExposureOffset();
+
+
   /// Switches the camera to the given focus mode.
   @async
   @ObjCSelector('setFocusMode:')

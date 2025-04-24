@@ -417,7 +417,7 @@ class AndroidCamera extends CameraPlatform {
   }
 
   @override
-  Future<int> getExposureOffset(int cameraId) async {
+  Future<double> getExposureOffset(int cameraId) async {
     final int? appliedOffset = await _channel.invokeMethod<int>(
       'getExposureOffset',
       <String, dynamic>{
@@ -425,7 +425,7 @@ class AndroidCamera extends CameraPlatform {
       },
     );
 
-    return appliedOffset!;
+    return appliedOffset!.toDouble();
   }
 
   @override

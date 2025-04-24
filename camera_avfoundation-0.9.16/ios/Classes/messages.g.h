@@ -249,6 +249,8 @@ NSObject<FlutterMessageCodec> *FCPCameraApiGetCodec(void);
 - (void)getMaximumExposureOffset:(void (^)(NSNumber *_Nullable, FlutterError *_Nullable))completion;
 /// Sets the exposure offset manually to the given value.
 - (void)setExposureOffset:(double)offset completion:(void (^)(FlutterError *_Nullable))completion;
+/// get exposure offset 
+- (void)getExposureOffsetWithCompletion:(nonnull void (^)(NSNumber *_Nullable, FlutterError *_Nullable))completion;
 /// Switches the camera to the given focus mode.
 - (void)setFocusMode:(FCPPlatformFocusMode)mode
           completion:(void (^)(FlutterError *_Nullable))completion;

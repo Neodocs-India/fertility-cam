@@ -774,7 +774,7 @@ class CameraController extends ValueNotifier<CameraValue> {
   /// Retrieves the latest exposure offset that was captured from the preview stream
   ///
   /// Returns the retrieved offset value.
-  Future<int> getExposureOffset() async {
+  Future<double> getExposureOffset() async {
     _throwIfNotInitialized('getExposureOffset');
     try {
       return CameraPlatform.instance.getExposureOffset(_cameraId);

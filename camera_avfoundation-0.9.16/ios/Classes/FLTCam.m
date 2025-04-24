@@ -1123,6 +1123,10 @@ NSString *const errorMethod = @"error";
   [_captureDevice unlockForConfiguration];
 }
 
+- (double)getExposureOffset {
+  return _captureDevice.exposureTargetBias;
+}
+
 - (void)startImageStreamWithMessenger:(NSObject<FlutterBinaryMessenger> *)messenger {
   [self startImageStreamWithMessenger:messenger
                    imageStreamHandler:[[FLTImageStreamHandler alloc]

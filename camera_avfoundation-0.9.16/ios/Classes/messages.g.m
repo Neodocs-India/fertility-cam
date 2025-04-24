@@ -890,6 +890,28 @@ void SetUpFCPCameraApiWithSuffix(id<FlutterBinaryMessenger> binaryMessenger,
       [channel setMessageHandler:nil];
     }
   }
+  {
+    FlutterBasicMessageChannel *channel = [[FlutterBasicMessageChannel alloc]
+           initWithName:[NSString stringWithFormat:@"%@%@",
+                                                   @"dev.flutter.pigeon.camera_avfoundation."
+                                                   @"CameraApi.getExposureOffset",
+                                                   messageChannelSuffix]
+        binaryMessenger:binaryMessenger
+                  codec:FCPCameraApiGetCodec()];
+    if (api) {
+      NSCAssert(
+        [api respondsToSelector:@selector(getExposureOffsetWithCompletion:)],
+        @"FCPCameraApi api (%@) doesn't respond to @selector(getExposureOffsetWithCompletion:)",
+        api);
+      [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
+        [api getExposureOffsetWithCompletion:^(NSNumber *_Nullable output, FlutterError *_Nullable error) {
+          callback(wrapResult(output, error));
+        }];
+    }];
+    } else {
+      [channel setMessageHandler:nil];
+    }
+  }
   /// Switches the camera to the given focus mode.
   {
     FlutterBasicMessageChannel *channel = [[FlutterBasicMessageChannel alloc]
